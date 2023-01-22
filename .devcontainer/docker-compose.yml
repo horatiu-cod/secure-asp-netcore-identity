@@ -2,18 +2,19 @@ version: '3'
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
+    #build:
+    # context: .
+    # dockerfile: Dockerfile
+    # args:
         # Update 'VARIANT' to pick a version of .NET: 3.1-focal, 5.0-focal, 6.0-focal
-        VARIANT: "6.0-focal"
+        #VARIANT: "6.0-focal"
         # Optional version of Node.js
-        NODE_VERSION: "lts/*"
+        #NODE_VERSION: "lts/*"
+    image: dotnet-mssql-node:0.01
 
     volumes:
       - ..:/workspace:cached
-      - ./persisted-data/.aspnet:/root/.aspnet/
+      - ./persisted-data/.aspnet:/home/vscode/.aspnet/
 
 
     # Overrides default command so things don't shut down after the process ends.
